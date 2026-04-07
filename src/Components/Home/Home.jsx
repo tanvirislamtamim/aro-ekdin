@@ -45,64 +45,83 @@ const Home = () => {
           .animate-zoom {
             animation: slowZoom 6s linear infinite alternate;
           }
+          /* Dark theme global background */
+          .dark-home-bg {
+            background-color: #0a0a0a;
+          }
+          /* Ensure marquee and video components inherit dark background */
+          .dark-home-bg > * {
+            background-color: inherit;
+          }
         `}
       </style>
 
-      <section className="relative w-full h-[80vh] md:h-screen overflow-hidden bg-black font-sans">
+      {/* Wrapper div with dark theme background */}
+      <div className="dark-home-bg ">
 
-        {/* Main Background Slider */}
-        {bannerData.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentSlide ? "opacity-100 visible" : "opacity-0 invisible"}`}
-          >
-            <img
-              src={slide.img}
-              alt={slide.title}
-              className={`w-full h-full object-cover object-center ${index === currentSlide ? "animate-zoom" : "scale-100"}`}
-            />
+        {/* Hero Banner Section */}
+        <section className="relative w-full h-[80vh] md:h-screen overflow-hidden bg-black font-sans">
 
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          {/* Main Background Slider */}
+          {bannerData.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentSlide ? "opacity-100 visible" : "opacity-0 invisible"}`}
+            >
+              <img
+                src={slide.img}
+                alt={slide.title}
+                className={`w-full h-full object-cover object-center ${index === currentSlide ? "animate-zoom" : "scale-100"}`}
+              />
 
-            <div className="absolute inset-0 flex items-end px-6 md:px-20 pb-12 sm:pb-20 md:pb-32">
-              <div className="max-w-3xl">
-                <h1 className={`text-4xl md:text-8xl font-black italic uppercase tracking-tighter text-white transition-all duration-1000 delay-300 transform ${index === currentSlide ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}>
-                  {slide.title}
-                </h1>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
 
-                <div className={`h-1.5 bg-red-600 my-4 transition-all duration-[1.5s] delay-500 ${index === currentSlide ? "w-20 md:w-40" : "w-0"}`}></div>
+              <div className="absolute inset-0 flex items-end px-6 md:px-20 pb-12 sm:pb-20 md:pb-32">
+                <div className="max-w-3xl">
+                  <h1 className={`text-4xl md:text-8xl font-black italic uppercase tracking-tighter text-white transition-all duration-1000 delay-300 transform ${index === currentSlide ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}>
+                    {slide.title}
+                  </h1>
 
-                <p className={`text-sm md:text-2xl text-gray-300 font-medium tracking-wide max-w-sm md:max-w-md transition-all duration-1000 delay-700 transform ${index === currentSlide ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}>
-                  {slide.description}
-                </p>
+                  <div className={`h-1.5 bg-red-600 my-4 transition-all duration-[1.5s] delay-500 ${index === currentSlide ? "w-20 md:w-40" : "w-0"}`}></div>
+
+                  <p className={`text-sm md:text-2xl text-gray-300 font-medium tracking-wide max-w-sm md:max-w-md transition-all duration-1000 delay-700 transform ${index === currentSlide ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}>
+                    {slide.description}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-
-        <div className="absolute bottom-10 right-6 md:right-16 flex flex-col space-y-4 z-30">
-          {bannerData.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className="group flex items-center justify-end p-2"
-            >
-              <span className={`mr-3 text-[10px] md:text-xs font-bold transition-all duration-300 ${index === currentSlide ? "text-red-600 opacity-100" : "text-white opacity-0 md:group-hover:opacity-50"}`}>
-                0{index + 1}
-              </span>
-              <div className={`transition-all duration-500 rounded-full ${index === currentSlide ? "h-8 w-1 bg-red-600 shadow-[0_0_15px_#dc2626]" : "h-3 w-1 bg-white/30"}`} />
-            </button>
           ))}
+
+          <div className="absolute bottom-10 right-6 md:right-16 flex flex-col space-y-4 z-30">
+            {bannerData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className="group flex items-center justify-end p-2"
+              >
+                <span className={`mr-3 text-[10px] md:text-xs font-bold transition-all duration-300 ${index === currentSlide ? "text-red-600 opacity-100" : "text-white opacity-0 md:group-hover:opacity-50"}`}>
+                  0{index + 1}
+                </span>
+                <div className={`transition-all duration-500 rounded-full ${index === currentSlide ? "h-8 w-1 bg-red-600 shadow-[0_0_15px_#dc2626]" : "h-3 w-1 bg-white/30"}`} />
+              </button>
+            ))}
+          </div>
+
+          <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
+        </section>
+
+        {/* PlayersMarquee wrapped with dark background support */}
+        <div className="bg-black/90">
+          <PlayersMarquee />
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
-      </section>
+        {/* AutoPlayVideo with dark background */}
+        <div className="bg-black">
+          <AutoPlayVideo videoSrc="MainVideo.mp4" />
+        </div>
 
-     
-      
-        <PlayersMarquee />
-        <AutoPlayVideo videoSrc="MainVideo.mp4" />
+      </div>
     </>
   );
 };

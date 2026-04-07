@@ -10,10 +10,10 @@ export default function PlayersMarquee() {
   const marqueeImages = [...images, ...images];
 
   return (
-    <div className="w-full  bg-[#f5f5f5] flex items-start justify-center px-2 sm:px-4 pb-20 md:pb-40 overflow-hidden ">
-      <div className="w-full max-w-full bg-white rounded-[40px] shadow-xl px-4 sm:px-8 py-4 sm:py-10 overflow-hidden mt-20 md:mt-40">
+    <div className="w-full bg-black flex items-start justify-center px-2 sm:px-4 pb-20 md:pb-40 overflow-hidden">
+      <div className="w-full max-w-full bg-gray-900 rounded-[40px] shadow-2xl px-4 sm:px-8 py-4 sm:py-10 overflow-hidden mt-20 md:mt-40 border border-gray-800">
         <div className="text-center mb-2 sm:mb-10">
-          <h1 className="text-3xl sm:text-5xl font-bold leading-tight text-black">
+          <h1 className="text-3xl sm:text-5xl font-bold leading-tight text-white">
             Moment of Action
           </h1>
         </div>
@@ -29,7 +29,7 @@ export default function PlayersMarquee() {
         </div>
 
         <div className="flex justify-center mt-2 sm:mt-8">
-          <button className="px-6 sm:px-8 py-2 sm:py-3 rounded-full bg-black text-white font-medium text-sm sm:text-base shadow-md">
+          <button className="px-6 sm:px-8 py-2 sm:py-3 rounded-full bg-white text-black font-medium text-sm sm:text-base shadow-md hover:bg-gray-200 transition duration-300">
             See All Players
           </button>
         </div>
@@ -61,7 +61,8 @@ export default function PlayersMarquee() {
           height: 100%;
           object-fit: cover;
           border-radius: 28px;
-          box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+          border: 1px solid rgba(255,255,255,0.1);
         }
 
         @keyframes marqueeMove {
