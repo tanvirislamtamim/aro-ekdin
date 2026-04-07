@@ -93,7 +93,7 @@ const Player = ({ player, index }) => {
             </div>
           </div>
 
-          <div className="w-12 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-4"></div>
+          <div className="w-12 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mt-1 mb-4"></div>
         </div>
 
         {/* View Details Button */}

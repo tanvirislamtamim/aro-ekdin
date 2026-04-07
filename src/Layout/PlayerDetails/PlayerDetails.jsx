@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { useState } from "react";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData, useParams, useNavigate } from "react-router-dom";
 import {
   User,
   Flag,
@@ -9,7 +9,8 @@ import {
   Weight,
   HandMetal,
   Phone,
-  ShieldCheck
+  ShieldCheck,
+  ArrowLeft,
 } from "lucide-react";
 
 const PlayerDetailsCard = () => {
@@ -17,6 +18,7 @@ const PlayerDetailsCard = () => {
   const playerId = parseInt(id);
   const data = useLoaderData();
   const singlePlayer = data.find((player) => player.id === playerId);
+  const navigate = useNavigate();
 
   const {
     name,
@@ -29,7 +31,7 @@ const PlayerDetailsCard = () => {
     weight,
     DominantHand,
     Birthdate,
-    phone
+    phone,
   } = singlePlayer || {};
 
   const x = useMotionValue(0);
@@ -52,13 +54,13 @@ const PlayerDetailsCard = () => {
 
     setGlowPosition({
       x: ((e.clientX - rect.left) / rect.width) * 100,
-      y: ((e.clientY - rect.top) / rect.height) * 100
+      y: ((e.clientY - rect.top) / rect.height) * 100,
     });
   };
 
   return (
     <div className="min-h-screen bg-[#020617] flex items-center justify-center p-6 relative overflow-hidden font-sans">
-
+      {/* Background blobs */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-purple-900/20 rounded-full blur-[180px]" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-indigo-700/20 rounded-full blur-[180px]" />
@@ -73,7 +75,7 @@ const PlayerDetailsCard = () => {
           style={{
             rotateX: springRotateX,
             rotateY: springRotateY,
-            transformStyle: "preserve-3d"
+            transformStyle: "preserve-3d",
           }}
           onMouseMove={handleMouseMove}
           onMouseLeave={() => {
@@ -84,20 +86,37 @@ const PlayerDetailsCard = () => {
           onMouseEnter={() => setIsHovering(true)}
           className="relative rounded-3xl overflow-hidden border border-white/20 bg-gradient-to-tr from-white/5 to-indigo-900/10 backdrop-blur-[40px] shadow-2xl shadow-indigo-900/40 transition-transform duration-500 hover:scale-[1.03]"
         >
+          {/* Glow effect */}
           <div
             className="absolute inset-0 pointer-events-none transition-opacity duration-300"
             style={{
               opacity: isHovering ? 1 : 0,
-              background: `radial-gradient(600px circle at ${glowPosition.x}% ${glowPosition.y}%, rgba(99,102,241,0.2), transparent 40%)`
+              background: `radial-gradient(600px circle at ${glowPosition.x}% ${glowPosition.y}%, rgba(99,102,241,0.2), transparent 40%)`,
             }}
           />
 
-          <div className="flex flex-col md:flex-row">
+          {/* Enhanced Back Button */}
+          <button
+            onClick={() => navigate(-1)}
+            className="absolute top-5 left-5 z-20 flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full pl-3 pr-4 py-2 border border-white/20 shadow-lg transition-all duration-300 group hover:bg-white/20 hover:border-indigo-400/60 hover:shadow-indigo-500/30 hover:scale-105"
+            aria-label="Go back"
+          >
+            <ArrowLeft
+              size={18}
+              className="text-indigo-300 group-hover:text-indigo-200 group-hover:-translate-x-1 transition-all duration-300"
+            />
+            <span className="text-sm font-medium text-white/90 group-hover:text-white tracking-wide">
+              Back
+            </span>
+            {/* Animated gradient shine on hover */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/0 via-indigo-400/40 to-indigo-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none -z-10" />
+          </button>
 
+          {/* Main card content */}
+          <div className="flex flex-col md:flex-row">
             {/* LEFT SIDE */}
             <div className="w-full md:w-2/5 p-8 flex flex-col items-center justify-center border-r border-white/10">
               <div className="relative">
-
                 {/* IMAGE */}
                 <motion.div
                   initial={{ scale: 0.85 }}
@@ -111,7 +130,7 @@ const PlayerDetailsCard = () => {
                   />
                 </motion.div>
 
-                {/* JERSEY (FULL ROUND BADGE) */}
+                {/* JERSEY BADGE */}
                 <div className="absolute top-8 right-2 translate-x-1/3 -translate-y-1/3 bg-gradient-to-tr from-indigo-500 to-purple-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-xl font-black shadow-lg animate-pulse border border-white/20">
                   {jersey}
                 </div>
@@ -121,11 +140,9 @@ const PlayerDetailsCard = () => {
                 <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-500">
                   {name}
                 </h2>
-
                 <p className="text-indigo-300 uppercase text-sm mt-1 tracking-widest">
                   {position}
                 </p>
-
                 <div className="flex items-center gap-2 mt-4 bg-white/5 px-4 py-1.5 rounded-full border border-white/10">
                   <ShieldCheck size={16} className="text-indigo-400" />
                   <span className="text-xs text-slate-300 font-semibold uppercase">
@@ -149,14 +166,11 @@ const PlayerDetailsCard = () => {
                 <DetailItem icon={<User size={18} />} label="Age" value={`${age} Years`} />
                 <DetailItem icon={<Ruler size={18} />} label="Height" value={height} />
                 <DetailItem icon={<Weight size={18} />} label="Weight" value={weight} />
-
-                {/* Dominant Hand with icon */}
                 <DetailItem
                   icon={<HandMetal size={18} />}
                   label="Dominant Hand"
                   value={DominantHand}
                 />
-
                 <DetailItem icon={<Calendar size={18} />} label="Birth Date" value={Birthdate} />
               </div>
 
@@ -170,8 +184,6 @@ const PlayerDetailsCard = () => {
                     <p className="text-slate-200 font-semibold">{phone}</p>
                   </div>
                 </div>
-
-                
               </div>
             </div>
           </div>
@@ -191,7 +203,6 @@ const DetailItem = ({ icon, label, value }) => (
         {label}
       </span>
     </div>
-
     <p className="text-white font-semibold text-lg ml-7 group-hover:translate-x-1 transition-transform duration-300">
       {value || "N/A"}
     </p>
