@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Player = ({ player, index }) => {
-  const { name, position, img, jersey } = player;
+  const { name, position, img, jersey, id } = player;
 
   return (
     <div className="flex justify-center w-full p-2">
@@ -97,9 +98,11 @@ const Player = ({ player, index }) => {
 
         {/* View Details Button */}
         <div className="w-full">
-          <button className="buy-button w-full py-3 rounded-xl text-white font-bold shadow-lg">
-            View Details
-          </button>
+          <Link to={`/playerDetails/${id}`}>
+            <button className="buy-button w-full py-3 rounded-xl text-white font-bold shadow-lg">
+              View Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>

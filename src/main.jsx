@@ -34,8 +34,9 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "playerDetails",
+        path: "playerDetails/:id",
         Component: PlayerDetails,
+        loader: () => fetch("Players.json")
         
 
       },

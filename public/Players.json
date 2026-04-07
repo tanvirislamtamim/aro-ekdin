@@ -3,25 +3,29 @@
     "id": 1, 
     "name": "Tanvir Islam Tamim",
     "position": "Setter",
-    "img": "Tanvir.jpg",
+    "img": "/Tanvir.jpg",
     "age": 20,
+    "nationality": "Bangladeshi",
     "height": "5'8\"",
-    "Weight": "72 kg",
+    "weight": "72 kg",
     "jersey": "8",
-
-    "hand": "Left",
+    "DominantHand": "Left",
+    "phone": "01742582808",
     "Birthdate": "31/01/2006"
     },
     { 
     "id": 2, 
     "name": "Rakib Mahmud", 
+    "nationality": "Bangladeshi",
     "position": "Spiker", 
-    "img": "Rakib.jpg",
-    "age": 20,
+    "img": "/Rakib.jpg",
+    "age": 21,
     "height": "5'8\"",
-    "Weight": "80 kg",
+    "weight": "80 kg",
     "hand": "Right",
     "jersey": "9",
-    "Birthdate": "05/03/2005"
+    "Birthdate": "05/03/2005",
+    "DominantHand": "Right",
+    "phone": "01793908746"
     }
 ]
