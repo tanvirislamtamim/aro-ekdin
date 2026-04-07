@@ -1,6 +1,19 @@
-[
+[   { 
+    "id": 3, 
+    "name": "Mizba Al Naim", 
+    "nationality": "Bangladeshi",
+    "position": "Middle-blocker", 
+    "img": "/Mizba.jpg",
+    "age": 25,
+    "height": "5'11\"",
+    "weight": "80 kg", 
+    "jersey": "3",
+    "Birthdate": "10/12/2000",
+    "DominantHand": "Right",
+    "phone": "01828034641"
+    },
     {
-    "id": 1, 
+    "id": 8, 
     "name": "Tanvir Islam Tamim",
     "position": "Setter",
     "img": "/Tanvir.jpg",
@@ -14,7 +27,7 @@
     "Birthdate": "31/01/2006"
     },
     { 
-    "id": 2, 
+    "id": 9, 
     "name": "Rakib Mahmud", 
     "nationality": "Bangladeshi",
     "position": "Libero", 
@@ -22,10 +35,10 @@
     "age": 21,
     "height": "5'8\"",
     "weight": "80 kg",
-    "hand": "Right",
     "jersey": "9",
     "Birthdate": "05/03/2005",
     "DominantHand": "Right",
     "phone": "01793908746"
     }
+    
 ]
