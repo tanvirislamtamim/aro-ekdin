@@ -1,0 +1,27 @@
+[
+    {
+    "id": 1, 
+    "name": "Tanvir Islam Tamim",
+    "position": "Setter",
+    "img": "Tanvir.jpg",
+    "age": 20,
+    "height": "5'8\"",
+    "Weight": "72 kg",
+    "jersey": "8",
+
+    "hand": "Left",
+    "Birthdate": "31/01/2006"
+    },
+    { 
+    "id": 2, 
+    "name": "Rakib Mahmud", 
+    "position": "Spiker", 
+    "img": "Rakib.jpg",
+    "age": 20,
+    "height": "5'8\"",
+    "Weight": "80 kg",
+    "hand": "Right",
+    "jersey": "9",
+    "Birthdate": "05/03/2005"
+    }
+]
