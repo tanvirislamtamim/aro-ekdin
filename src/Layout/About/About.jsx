@@ -263,7 +263,7 @@ const AboutUs = () => {
                 transition={{ type: "spring", stiffness: 120, damping: 12, delay: idx * 0.08 }}
                 className="inline-block text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter mx-2"
               >
-                <span className="bg-gradient-to-r from-blue-400 via-white to-red-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                <span className="bg-gradient-to-r from-blue-500 via-white to-black/50 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                   {word}
                 </span>
               </motion.span>
@@ -299,16 +299,7 @@ const AboutUs = () => {
           </motion.div>
         </div>
 
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 text-sm flex flex-col items-center gap-2"
-        >
-          <span>Scroll Down</span>
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </motion.div>
+        {/* Scroll down indicator removed */}
       </motion.div>
 
       {/* ========== REMAINING SECTIONS (optimized hover) ========== */}
@@ -385,7 +376,7 @@ const AboutUs = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-7xl font-black italic mb-16 bg-gradient-to-r from-blue-400 to-red-500 bg-clip-text text-transparent"
+            className="text-5xl md:text-7xl font-black italic mb-16 bg-gradient-to-r from-blue-500  to-white  bg-clip-text text-transparent"
           >
             Our Values
           </motion.h2>
@@ -433,7 +424,7 @@ const AboutUs = () => {
           <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-red-600 rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition" />
           <div className="relative bg-black/60 backdrop-blur-md rounded-3xl overflow-hidden border border-white/10">
             <div className="p-8 text-center">
-              <h2 className="text-4xl md:text-5xl font-black italic mb-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-red-500">
+              <h2 className="text-4xl md:text-5xl font-black italic mb-3 pb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-white">
                 Our Playing Ground
               </h2>
               <p className="text-gray-300 mb-6">Practice sessions are held at our ground every evening.</p>
