@@ -30,7 +30,7 @@ const Players = () => {
                 
                 {/* Section Header */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight pb-2 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent inline-block">
+                    <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight pb-2 bg-linear-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent inline-block">
                         All Players
                     </h1>
                     <div className="h-1 w-20 bg-purple-600 mx-auto mt-4 rounded-full opacity-80"></div>
