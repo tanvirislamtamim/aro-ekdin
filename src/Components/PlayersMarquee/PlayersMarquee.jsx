@@ -28,11 +28,7 @@ export default function PlayersMarquee() {
           </div>
         </div>
 
-        <div className="flex justify-center mt-2 sm:mt-8">
-          <button className="px-6 sm:px-8 py-2 sm:py-3 rounded-full bg-white text-black font-medium text-sm sm:text-base shadow-md hover:bg-gray-200 transition duration-300">
-            See All Players
-          </button>
-        </div>
+        
       </div>
 
       <style>{`

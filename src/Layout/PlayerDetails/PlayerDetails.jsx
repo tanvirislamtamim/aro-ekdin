@@ -1,6 +1,13 @@
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useTransform,
+  useSpring,
+} from "framer-motion";
 import { useState } from "react";
-import { useLoaderData, useParams, useNavigate } from "react-router-dom";
+import { useLoaderData, useParams, useNavigate, Link } from "react-router-dom";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import {
   User,
   Flag,
@@ -20,9 +27,13 @@ const PlayerDetailsCard = () => {
   const singlePlayer = data.find((player) => player.id === playerId);
   const navigate = useNavigate();
 
+  const [showToast, setShowToast] = useState(false);
+
   const {
     name,
+    facebook,
     position,
+    whatsapp,
     img,
     jersey,
     nationality,
@@ -32,6 +43,7 @@ const PlayerDetailsCard = () => {
     DominantHand,
     Birthdate,
     phone,
+    instagram,
   } = singlePlayer || {};
 
   const x = useMotionValue(0);
@@ -58,8 +70,63 @@ const PlayerDetailsCard = () => {
     });
   };
 
+  const copyNumber = () => {
+    navigator.clipboard.writeText(phone);
+
+    setShowToast(true);
+
+    setTimeout(() => {
+      setShowToast(false);
+    }, 2000);
+  };
+
   return (
     <div className="min-h-screen bg-[#020617] flex items-center justify-center p-6 relative overflow-hidden font-sans">
+      {/* 3D Animated Toast */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: -40,
+              x: 40,
+              scale: 0.7,
+              rotateX: -40,
+              rotateY: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              x: 0,
+              scale: 1,
+              rotateX: 0,
+              rotateY: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: -30,
+              x: 30,
+              scale: 0.8,
+            }}
+            transition={{
+              duration: 0.6,
+              type: "spring",
+              stiffness: 220,
+              damping: 18,
+            }}
+            className="fixed top-5 right-5 z-50"
+          >
+            <div className="relative px-5 py-3 rounded-2xl border border-white/20 bg-gradient-to-br from-indigo-600/90 to-purple-700/90 backdrop-blur-xl shadow-2xl shadow-indigo-900/50 text-white font-semibold tracking-wide">
+              <div className="absolute inset-0 rounded-2xl bg-white/10 blur-md" />
+              <div className="relative flex items-center gap-2">
+                <span className="text-lg">📋</span>
+                <span>Number copied</span>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Background blobs */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-purple-900/20 rounded-full blur-[180px]" />
@@ -95,7 +162,7 @@ const PlayerDetailsCard = () => {
             }}
           />
 
-          {/* Enhanced Back Button */}
+          {/* Back Button */}
           <button
             onClick={() => navigate(-1)}
             className="absolute top-5 left-5 z-20 flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full pl-3 pr-4 py-2 border border-white/20 shadow-lg transition-all duration-300 group hover:bg-white/20 hover:border-indigo-400/60 hover:shadow-indigo-500/30 hover:scale-105"
@@ -108,8 +175,6 @@ const PlayerDetailsCard = () => {
             <span className="text-sm font-medium text-white/90 group-hover:text-white tracking-wide">
               Back
             </span>
-            {/* Animated gradient shine on hover */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/0 via-indigo-400/40 to-indigo-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none -z-10" />
           </button>
 
           {/* Main card content */}
@@ -117,7 +182,6 @@ const PlayerDetailsCard = () => {
             {/* LEFT SIDE */}
             <div className="w-full md:w-2/5 p-8 flex flex-col items-center justify-center border-r border-white/10">
               <div className="relative">
-                {/* IMAGE */}
                 <motion.div
                   initial={{ scale: 0.85 }}
                   animate={{ scale: 1 }}
@@ -130,24 +194,36 @@ const PlayerDetailsCard = () => {
                   />
                 </motion.div>
 
-                {/* JERSEY BADGE */}
                 <div className="absolute top-8 right-2 translate-x-1/3 -translate-y-1/3 bg-gradient-to-tr from-indigo-500 to-purple-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-xl font-black shadow-lg animate-pulse border border-white/20">
                   {jersey}
                 </div>
               </div>
 
               <div className="mt-8 text-center">
-                <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-500">
+                <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-white">
                   {name}
                 </h2>
                 <p className="text-indigo-300 uppercase text-sm mt-1 tracking-widest">
                   {position}
                 </p>
+
                 <div className="flex items-center gap-2 mt-4 bg-white/5 px-4 py-1.5 rounded-full border border-white/10">
                   <ShieldCheck size={16} className="text-indigo-400" />
                   <span className="text-xs text-slate-300 font-semibold uppercase">
                     Verified Player
                   </span>
+                </div>
+
+                <div className="flex justify-center items-center gap-6 mt-4 bg-white/5 px-4 py-1.5 rounded-full border border-white/10">
+                  <Link to={facebook} target="_blank" rel="noopener noreferrer">
+                    <FaFacebook color="white" size={30} />
+                  </Link>
+                  <Link to={instagram} target="_blank" rel="noopener noreferrer">
+                    <FaInstagram color="white" size={30} />
+                  </Link>
+                  <Link to={whatsapp} target="_blank" rel="noopener noreferrer">
+                    <FaWhatsapp color="white" size={30} />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -174,7 +250,10 @@ const PlayerDetailsCard = () => {
                 <DetailItem icon={<Calendar size={18} />} label="Birth Date" value={Birthdate} />
               </div>
 
-              <div className="mt-10 p-5 bg-indigo-500/5 border border-indigo-500/20 rounded-2xl flex items-center justify-between">
+              <div
+                onClick={copyNumber}
+                className="mt-10 p-5 bg-indigo-500/5 border border-indigo-500/20 rounded-2xl flex items-center justify-between cursor-pointer hover:bg-indigo-500/10 transition-all duration-300"
+              >
                 <div className="flex items-center gap-3">
                   <div className="bg-indigo-500/20 p-2 rounded-lg text-indigo-400">
                     <Phone size={20} />
