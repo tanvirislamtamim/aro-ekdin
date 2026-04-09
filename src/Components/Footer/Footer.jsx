@@ -23,6 +23,13 @@ const Footer = () => {
     }, 2000);
   };
 
+  // Social links data
+  const socialLinks = [
+    { icon: FaFacebookF, url: "https://facebook.com", label: "Facebook", color: "hover:bg-blue-600" },
+    { icon: FaTiktok, url: "https://tiktok.com", label: "TikTok", color: "hover:bg-black" },
+    { icon: FaYoutube, url: "https://youtube.com", label: "YouTube", color: "hover:bg-red-600" },
+  ];
+
   // --- All variants remain beautiful, but now they will retrigger on each view ---
 
   const brandCardVariants = {
@@ -296,7 +303,7 @@ const Footer = () => {
             viewport={{ once: false, amount: 0.2 }}
             className="lg:col-span-7 group relative"
           >
-            <div className="h-full p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] bg-gradient-to-br from-white/10 to-white/[0.02] border border-white/10 backdrop-blur-2xl">
+            <div className="h-full p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] bg-gradient-to-br from-white/10 to-white/[0.02] border border-white/10 backdrop-blur-2xl transition-all duration-500 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10">
               <motion.div
                 variants={logoVariants}
                 initial="hidden"
@@ -304,10 +311,12 @@ const Footer = () => {
                 viewport={{ once: false }}
                 className="relative mb-8 md:mb-10 inline-block"
               >
-                <img
+                <motion.img
                   src="Logo.jpeg"
                   alt="Team Logo"
-                  className="relative w-28 h-28 md:w-36 md:h-36 rounded-[2rem] md:rounded-[2.5rem] object-cover border-2 border-white/20 shadow-2xl"
+                  className="relative w-28 h-28 md:w-36 md:h-36 rounded-[2rem] md:rounded-[2.5rem] object-cover border-2 border-white/20 shadow-2xl cursor-pointer transition-all duration-300 hover:scale-110 hover:rotate-6 hover:border-blue-400"
+                  whileHover={{ scale: 1.05, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 />
               </motion.div>
 
@@ -316,7 +325,7 @@ const Footer = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false }}
-                className="text-5xl md:text-7xl font-black italic"
+                className="text-5xl md:text-7xl font-black italic transition-all duration-300 group-hover:tracking-wider"
               >
                 TEAM
               </motion.h2>
@@ -326,7 +335,7 @@ const Footer = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false }}
-                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-red-500 text-5xl md:text-7xl font-black italic"
+                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-red-500 text-5xl md:text-7xl font-black italic transition-all duration-500 group-hover:scale-105 group-hover:from-blue-300 group-hover:via-gray-100 group-hover:to-red-400"
               >
                 ARO EKDIN
               </motion.span>
@@ -336,10 +345,39 @@ const Footer = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false }}
-                className="text-gray-400 text-lg md:text-xl max-w-lg mb-10"
+                className="text-gray-400 text-lg md:text-xl max-w-lg mb-10 transition-all duration-300 group-hover:text-gray-300"
               >
                 Beyond the court, we build legacies.
               </motion.p>
+
+              {/* Social Links */}
+              <motion.div
+                variants={socialContainerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false }}
+                className="flex gap-4 mt-6"
+              >
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variants={getSocialVariant(index)}
+                    custom={index}
+                    whileHover={{ 
+                      scale: 1.2, 
+                      rotate: 5,
+                      transition: { type: "spring", stiffness: 400 }
+                    }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 ${social.color} hover:shadow-lg hover:shadow-blue-500/30 group/social`}
+                  >
+                    <social.icon className="text-white text-xl transition-all duration-300 group-hover/social:scale-110" />
+                  </motion.a>
+                ))}
+              </motion.div>
             </div>
           </motion.div>
 
@@ -349,11 +387,14 @@ const Footer = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
-            className="lg:col-span-5 p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] bg-white/[0.03] border border-white/10"
+            className="lg:col-span-5 p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] bg-white/[0.03] border border-white/10 transition-all duration-500 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10"
           >
-            <h3 className="text-blue-500 font-bold uppercase text-xs mb-12">
+            <motion.h3 
+              className="text-blue-500 font-bold uppercase text-xs mb-12 tracking-wider transition-all duration-300 hover:tracking-widest hover:text-blue-400"
+              whileHover={{ x: 5 }}
+            >
               Contact Us
-            </h3>
+            </motion.h3>
 
             <div className="space-y-10">
               {/* Email */}
@@ -362,23 +403,34 @@ const Footer = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false }}
-                className="group/item cursor-pointer"
+                className="group/item cursor-pointer relative"
                 onClick={() =>
                   showCopyToast(
                     "aroekdin41@gmail.com",
                     "Email copied"
                   )
                 }
+                whileHover={{ x: 10 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                <p className="text-gray-500 text-xs font-bold uppercase mb-2">
+                <motion.p 
+                  className="text-gray-500 text-xs font-bold uppercase mb-2 transition-all duration-300 group-hover/item:text-blue-400"
+                  whileHover={{ scale: 1.05 }}
+                >
                   Official Mail
-                </p>
+                </motion.p>
                 <div className="flex items-center gap-3">
-                  <FaEnvelope className="text-blue-400 text-xl" />
-                  <p className="text-white text-xl md:text-2xl font-medium italic">
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.2 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <FaEnvelope className="text-blue-400 text-xl" />
+                  </motion.div>
+                  <p className="text-white text-xl md:text-2xl font-medium italic transition-all duration-300 group-hover/item:text-blue-300 group-hover/item:translate-x-2">
                     aroekdin41@gmail.com
                   </p>
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/0 to-blue-500/0 rounded-lg transition-all duration-500 group-hover/item:from-blue-500/5 group-hover/item:via-blue-500/5" />
               </motion.div>
 
               {/* Phone */}
@@ -387,23 +439,34 @@ const Footer = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false }}
-                className="group/item cursor-pointer"
+                className="group/item cursor-pointer relative"
                 onClick={() =>
                   showCopyToast(
                     "+8801828034641",
                     "Number copied"
                   )
                 }
+                whileHover={{ x: 10 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                <p className="text-gray-500 text-xs font-bold uppercase mb-2">
+                <motion.p 
+                  className="text-gray-500 text-xs font-bold uppercase mb-2 transition-all duration-300 group-hover/item:text-green-400"
+                  whileHover={{ scale: 1.05 }}
+                >
                   Support Hotline
-                </p>
+                </motion.p>
                 <div className="flex items-center gap-3">
-                  <FaPhoneAlt className="text-green-400 text-xl" />
-                  <p className="text-white text-xl md:text-2xl font-medium italic">
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.2 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <FaPhoneAlt className="text-green-400 text-xl" />
+                  </motion.div>
+                  <p className="text-white text-xl md:text-2xl font-medium italic transition-all duration-300 group-hover/item:text-green-300 group-hover/item:translate-x-2">
                     +880 1828 034641
                   </p>
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 via-green-500/0 to-green-500/0 rounded-lg transition-all duration-500 group-hover/item:from-green-500/5 group-hover/item:via-green-500/5" />
               </motion.div>
             </div>
 
@@ -414,11 +477,34 @@ const Footer = () => {
               viewport={{ once: false }}
               className="mt-16 flex items-center gap-2 text-gray-600 text-[10px] font-bold uppercase"
             >
-              <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+              <motion.span 
+                className="w-1.5 h-1.5 bg-green-500 rounded-full"
+                animate={{ 
+                  scale: [1, 1.5, 1],
+                  opacity: [1, 0.5, 1]
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
               Always Online
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Watermark */}
+        <motion.div
+          variants={watermarkVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false }}
+          className="absolute bottom-0 right-0 text-white text-9xl font-black select-none pointer-events-none"
+          style={{ opacity: 0.02 }}
+        >
+          ARO EKDIN
+        </motion.div>
       </div>
     </footer>
   );

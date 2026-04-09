@@ -70,7 +70,7 @@ const Player = ({ player, index }) => {
         }
       `}</style>
 
-      {/* animationDelay use kora hoyeche jeno cards gulo serial onujayi ashe */}
+     
       <div 
         className="modern-3d-card animate-card relative w-full max-w-[320px] min-h-[320px] rounded-2xl overflow-hidden shadow-2xl p-6 flex flex-col items-center text-center justify-between"
         style={{ animationDelay: `${index * 0.15}s` }}

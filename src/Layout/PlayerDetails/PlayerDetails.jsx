@@ -190,7 +190,7 @@ const PlayerDetailsCard = () => {
                   <img
                     src={img}
                     alt={name}
-                    className="w-full h-full object-cover rounded-full grayscale-[20%] hover:grayscale-0 hover:brightness-110 transition-all duration-500"
+                    className="w-full h-full object-cover rounded-full  hover:brightness-110 transition-all duration-500"
                   />
                 </motion.div>
 

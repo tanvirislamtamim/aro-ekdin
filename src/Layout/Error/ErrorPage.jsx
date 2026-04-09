@@ -5,17 +5,16 @@ const ErrorPage = ({ code = 404, title = "Page Not Found", message = "The page y
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-[#0a0f1e] via-[#03050b] to-black flex items-center justify-center p-6 relative overflow-hidden">
       
-      {/* গ্রিড ব্যাকগ্রাউন্ড */}
+     
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 50 50%22 width=%2250%22 height=%2250%22%3E%3Cpath fill=%22none%22 stroke=%22rgba(56,123,255,0.08)%22 stroke-width=%221%22 d=%22M0 0h50v50H0z%22/%3E%3C/svg%3E')] bg-repeat opacity-30 pointer-events-none"></div>
       
-      {/* গ্লো ইফেক্ট */}
+      
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[80px] -z-10"></div>
       <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-indigo-500/15 rounded-full blur-[70px] -z-10"></div>
 
-      {/* মেইন কার্ড */}
+      
       <div className="relative max-w-2xl w-full bg-black/40 backdrop-blur-xl rounded-3xl border border-blue-500/30 shadow-2xl p-8 md:p-12 text-center transition-all duration-300 hover:border-blue-400/60 hover:scale-[1.01]">
         
-        {/* এরর কোড ভিজুয়াল */}
         <div className="flex justify-center items-center gap-1 md:gap-2 mb-6">
           <span className="text-7xl md:text-9xl font-black bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent">
             {String(code)[0]}
@@ -30,7 +29,7 @@ const ErrorPage = ({ code = 404, title = "Page Not Found", message = "The page y
           </span>
         </div>
 
-        {/* টাইটেল ও মেসেজ */}
+      
         <h1 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mb-4">
           {title}
         </h1>
@@ -38,7 +37,7 @@ const ErrorPage = ({ code = 404, title = "Page Not Found", message = "The page y
           {message}
         </p>
 
-        {/* বাটন গ্রুপ */}
+        
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           <button 
             onClick={() => window.location.href = '/'} 
@@ -54,7 +53,7 @@ const ErrorPage = ({ code = 404, title = "Page Not Found", message = "The page y
           </button>
         </div>
 
-        {/* ফুটার সাহায্য টেক্সট */}
+        
         <div className="flex flex-wrap justify-center gap-4 text-xs md:text-sm text-gray-400 border-t border-gray-700/50 pt-6">
           <span className="bg-black/30 px-3 py-1 rounded-full">🔍 URL is it correct?</span>
           <span className="bg-black/30 px-3 py-1 rounded-full">📧 If you have any issues, please contact  <br />  http://aro-ekdin.surge.sh/</span>
