@@ -45,13 +45,23 @@ const Player = ({ player, index }) => {
           inset: -2px;
           border-radius: 50%;
           padding: 2px;
-          background: linear-gradient(125deg, #a855f7, #ec4899);
+          background: linear-gradient(
+  to right,
+  #60a5fa,  /* blue-400 */
+  #67e8f9,  /* cyan-300 */
+  #818cf8   /* indigo-400 */
+);
           -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
           mask-composite: exclude;
         }
 
         .buy-button {
-          background: linear-gradient(95deg, #7c3aed, #db2777, #7c3aed);
+          background: linear-gradient(
+  to right,
+  #60a5fa,  /* blue-400 */
+  #67e8f9,  /* cyan-300 */
+  #818cf8   /* indigo-400 */
+);
           background-size: 200% auto;
           transition: 0.3s;
         }
@@ -93,13 +103,13 @@ const Player = ({ player, index }) => {
             </div>
           </div>
 
-          <div className="w-12 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mt-1 mb-4"></div>
+          <div className="w-12 h-0.5 bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 rounded-full mt-1 mb-4"></div>
         </div>
 
         {/* View Details Button */}
         <div className="w-full">
           <Link to={`/playerDetails/${id}`}>
-            <button className="buy-button w-full py-3 rounded-xl text-white font-bold shadow-lg">
+            <button className="buy-button w-full py-3 rounded-xl text-black font-bold shadow-lg">
               View Details
             </button>
           </Link>

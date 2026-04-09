@@ -30,15 +30,15 @@ const Players = () => {
                 
                 {/* Section Header */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight pb-2 bg-linear-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent inline-block">
+                    <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight pb-2 bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent inline-block">
                         All Players
                     </h1>
-                    <div className="h-1 w-20 bg-purple-600 mx-auto mt-4 rounded-full opacity-80"></div>
+                    <div className="h-1 w-20 bg-cyan-300 mx-auto mt-4 rounded-full opacity-80"></div>
                 </div>
 
                 <Suspense fallback={
                     <div className="flex justify-center items-center h-64">
-                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cyan-300"></div>
                     </div>
                 }>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
