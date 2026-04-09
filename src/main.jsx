@@ -11,6 +11,7 @@ import PlayerDetails from './Layout/PlayerDetails/PlayerDetails';
 import About from './Layout/About/About';
 import Gallery from './Layout/Gallery/Gallery';
 import Players from './Layout/Players/Players';
+import ErrorPage from './Layout/Error/ErrorPage';
 
 
 
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component: App,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
