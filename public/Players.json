@@ -1,4 +1,6 @@
-[   { 
+[   
+    
+    { 
     "id": 3, 
     "name": "Mizba Al Naim",
     "facebook": "https://www.facebook.com/all.mijba",
@@ -171,5 +173,22 @@
     "Birthdate": "04/12/2011",
     "DominantHand": "Right",
     "phone": "01864450133"
+    },
+    { 
+    "id": 14, 
+    "name": "MD Mahadir Hassan",
+    "facebook": "https://www.facebook.com/md.mahadir.hassan.511271",
+    "instagram": "https://www.instagram.com",
+    "whatsapp": "https://wa.me/8801706414258?text=Hello%20bro",
+    "nationality": "Bangladeshi",
+    "position": "Outside Hitter", 
+    "img": "/Ridoy.jpg",
+    "age": 22,
+    "height": "5'7\"",
+    "weight": "73 kg", 
+    "jersey": "1",
+    "Birthdate": "13/10/2003",
+    "DominantHand": "Left",
+    "phone": "01706414258"
     }
 ]
