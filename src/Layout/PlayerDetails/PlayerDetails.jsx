@@ -32,6 +32,7 @@ const PlayerDetailsCard = () => {
   const {
     name,
     facebook,
+    work,
     position,
     whatsapp,
     img,
@@ -207,10 +208,10 @@ const PlayerDetailsCard = () => {
                   {position}
                 </p>
 
-                <div className="flex items-center gap-2 mt-4 bg-white/5 px-4 py-1.5 rounded-full border border-white/10">
+                <div className="flex justify-center items-center gap-2 mt-4 bg-white/5 px-4 py-1.5 rounded-full border border-white/10">
                   <ShieldCheck size={16} className="text-indigo-400" />
                   <span className="text-xs text-slate-300 font-semibold uppercase">
-                    Verified Player
+                    {work}
                   </span>
                 </div>
 
