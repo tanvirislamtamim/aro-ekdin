@@ -29,7 +29,7 @@ const Home = () => {
   const players = [
     { name: "S.Sajjad", id: "12", role: "Game Changer", img: "/Sajjad.jpg" },
     { name: "Mizba Al Naim", id: "3", role: "Captain", img: "/Mizba.jpg" },
-    { name: "MD Shehad", id: "2", role: "Star Performer", img: "/Shehad.jpg" },
+    { name: "MD Shehad", id: "5", role: "Star Performer", img: "/Shehad.jpg" },
   ];
 
   useEffect(() => {
@@ -134,7 +134,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
               <div className="absolute inset-0 flex items-end px-6 md:px-20 pb-12 sm:pb-20 md:pb-32">
                 <div className="max-w-3xl">
-                  <h1 className={`text-4xl md:text-8xl font-black italic uppercase tracking-tighter text-white transition-all duration-1000 delay-300 transform ${index === currentSlide ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}>
+                  <h1 className={`text-4xl md:text-8xl  font-black italic uppercase tracking-tighter  text-white transition-all duration-1000 delay-300 transform ${index === currentSlide ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}>
                     {slide.title}
                   </h1>
                   <div className={`h-1.5 bg-red-600 my-4 transition-all duration-[1.5s] delay-500 ${index === currentSlide ? "w-20 md:w-40" : "w-0"}`}></div>

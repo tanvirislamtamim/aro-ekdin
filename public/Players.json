@@ -7,7 +7,7 @@
     "instagram": "https://www.instagram.com/mizbaalnaim88/?__pwa=1",
     "whatsapp": "https://wa.me/8801828034641?text=Hello%20bro",
     "nationality": "Bangladeshi",
-    "position": "Middle-blocker",
+    "position": "Middle Blocker",
     "work" : "Bangladesh Army", 
     "img": "/Mizba.jpg",
     "age": 25,
@@ -54,8 +54,26 @@
     "DominantHand": "Right",
     "phone": "01648238359"
     },
-    {
+    { 
     "id": 6, 
+    "name": "Md Shehad",
+    "facebook": "https://www.facebook.com/shehad.molla",
+    "instagram": "https://www.instagram.com/shehad.molla/",
+    "whatsapp": "https://web.whatsapp.com/",
+    "nationality": "Bangladeshi",
+    "position": "Outside Hitter",
+    "work": "Bangladesh Army" ,
+    "img": "/Shehad.jpg",
+    "age": 22,
+    "height": "6'0\"",
+    "weight": "70 kg", 
+    "jersey": "5",
+    "Birthdate": "06/05/2003",
+    "DominantHand": "Right",
+    "phone": ""
+    },
+    {
+    "id": 7, 
     "name": "Rana Mridha",
     "facebook": "https://www.facebook.com/rana.mridha.724038",
     "instagram": "https://www.instagram.com/rana_mridha_6s/?__pwa=1",
@@ -73,7 +91,7 @@
     "Birthdate": "01/10/2006"
     },
     {
-    "id": 7, 
+    "id": 8, 
     "name": "Sabbir Mia",
     "facebook": "https://www.facebook.com/profile.php?id=61577000834786",
     "instagram": "https://www.instagram.com/md.sabbirmia20008/?__pwa=1",
@@ -91,7 +109,7 @@
     "Birthdate": "27/02/2008"
     },
     {
-    "id": 8, 
+    "id": 9, 
     "name": "Tanvir Islam Tamim",
     "facebook": "https://www.facebook.com/Tanvirislamtamim41",
     "instagram": "https://www.instagram.com/tanvir_islam_tamim_41/?__pwa=1",
@@ -109,7 +127,7 @@
     "Birthdate": "31/01/2006"
     },
     { 
-    "id": 9, 
+    "id": 10, 
     "name": "Rakib Mahmud", 
     "facebook": "https://www.facebook.com/rakib.mahamud.950028",
     "instagram": "https://www.instagram.com/durjoy_mahamud__rakib/?__pwa=1",
@@ -128,7 +146,7 @@
     }
     ,
     { 
-    "id": 10, 
+    "id": 11, 
     "name": "Sajjad Hosen Sakib",
     "facebook": "https://www.facebook.com/sajjad.hosen.sakib.2025",
     "instagram": "https://www.instagram.com/sakibsajjadhossen/?__pwa=1",
@@ -182,25 +200,6 @@
     "Birthdate": "01/01/2006",
     "DominantHand": "Right",
     "phone": "01882457135"
-    }
-    ,
-    { 
-    "id": 22, 
-    "name": "Thasin", 
-    "facebook": "https://www.facebook.com/mt.tahsin.772684",
-    "instagram": "https://www.instagram.com",
-    "whatsapp": "https://wa.me/8801864450133?text=Hello%20br",
-    "nationality": "Bangladeshi",
-    "position": "Opposite Hitter", 
-    "work": "Verified Player" ,
-    "img": "/Tasin.jpg",
-    "age": 14,
-    "height": "6'3\"",
-    "weight": "65 kg",
-    "jersey": "22",
-    "Birthdate": "04/12/2011",
-    "DominantHand": "Right",
-    "phone": "01864450133"
     },
     { 
     "id": 14, 
@@ -219,5 +218,23 @@
     "Birthdate": "13/10/2003",
     "DominantHand": "Left",
     "phone": "01706414258"
+    },
+    { 
+    "id": 22, 
+    "name": "Thasin", 
+    "facebook": "https://www.facebook.com/mt.tahsin.772684",
+    "instagram": "https://www.instagram.com",
+    "whatsapp": "https://wa.me/8801864450133?text=Hello%20br",
+    "nationality": "Bangladeshi",
+    "position": "Opposite Hitter", 
+    "work": "Verified Player" ,
+    "img": "/Tasin.jpg",
+    "age": 14,
+    "height": "6'3\"",
+    "weight": "65 kg",
+    "jersey": "22",
+    "Birthdate": "04/12/2011",
+    "DominantHand": "Right",
+    "phone": "01864450133"
     }
 ]

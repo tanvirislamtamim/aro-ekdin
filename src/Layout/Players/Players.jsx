@@ -1,13 +1,25 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import Player from './Player';
 import { useLoaderData } from 'react-router';
 
 const Players = () => {
     const data = useLoaderData();
+    const [selectedPosition, setSelectedPosition] = useState("All");
+    const [searchText, setSearchText] = useState("");
+
+    // 🔥 Filter + Search Logic
+    const filteredPlayers = data.filter(player => {
+        const matchPosition =
+            selectedPosition === "All" || player.position === selectedPosition;
+
+        const matchSearch =
+            player.name.toLowerCase().includes(searchText.toLowerCase());
+
+        return matchPosition && matchSearch;
+    });
 
     return (
         <div className="min-h-screen bg-gray-950 text-white">
-            {/* Global CSS for Animations */}
             <style>{`
                 @keyframes cardEntrance {
                     from {
@@ -28,12 +40,40 @@ const Players = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 
-                {/* Section Header */}
+                {/* Header */}
                 <div className="text-center mb-12">
                     <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight pb-2 bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent inline-block">
                         All Players
                     </h1>
                     <div className="h-1 w-20 bg-cyan-300 mx-auto mt-4 rounded-full opacity-80"></div>
+                </div>
+
+                {/* 🔍 Search Bar */}
+                <div className="flex justify-center mb-6">
+                    <input
+                        type="text"
+                        placeholder="Search player by name..."
+                        value={searchText}
+                        onChange={(e) => setSearchText(e.target.value)}
+                        className="w-full max-w-md px-4 py-2 rounded-full bg-gray-900 border border-gray-600 focus:border-cyan-300 outline-none text-white placeholder-gray-400"
+                    />
+                </div>
+
+                {/* Filter Buttons */}
+                <div className="flex flex-wrap justify-center gap-3 mb-10">
+                    {["All", "Setter", "Libero", "Middle Blocker", "Outside Hitter", "Opposite Hitter"].map(pos => (
+                        <button
+                            key={pos}
+                            onClick={() => setSelectedPosition(pos)}
+                            className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-300 
+                                ${selectedPosition === pos 
+                                    ? "bg-cyan-400 text-black border-cyan-400" 
+                                    : "border-gray-600 hover:border-cyan-300 hover:text-cyan-300"
+                                }`}
+                        >
+                            {pos}
+                        </button>
+                    ))}
                 </div>
 
                 <Suspense fallback={
@@ -43,7 +83,7 @@ const Players = () => {
                 }>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
                         {
-                            data.map((player, index) => (
+                            filteredPlayers.map((player, index) => (
                                 <div 
                                     key={player.id} 
                                     className="animate-card-load w-full flex justify-center"

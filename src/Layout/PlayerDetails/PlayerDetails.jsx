@@ -201,7 +201,7 @@ const PlayerDetailsCard = () => {
               </div>
 
               <div className="mt-8 text-center">
-                <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-white">
+                <h2 className="text-3xl font-extrabold  text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-white">
                   {name}
                 </h2>
                 <p className="text-indigo-300 uppercase text-sm mt-1 tracking-widest">
