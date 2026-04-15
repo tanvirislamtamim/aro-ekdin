@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
@@ -32,6 +32,16 @@ const Gallery = () => {
   ];
 
   const currentPhotos = activeTab === "new" ? newPhotos : oldPhotos;
+
+  // Track loading state for each image individually (plain JavaScript, no generics)
+  const [loadedStates, setLoadedStates] = useState(
+    () => new Array(currentPhotos.length).fill(false)
+  );
+
+  // Reset loading states whenever active tab changes
+  useEffect(() => {
+    setLoadedStates(new Array(currentPhotos.length).fill(false));
+  }, [activeTab, currentPhotos.length]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -125,7 +135,7 @@ const Gallery = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* TITLE - FIXED: fully visible, no cut-off */}
+        {/* TITLE */}
         <motion.div
           initial={{ opacity: 0, y: -50, rotateX: -20 }}
           animate={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -134,7 +144,7 @@ const Gallery = () => {
           style={{ perspective: 1000 }}
         >
           <motion.h2
-            className="text-5xl sm:text-7xl md:text-8xl font-black  tracking-tight overflow-visible whitespace-normal break-words inline-block max-w-full px-2"
+            className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight overflow-visible whitespace-normal break-words inline-block max-w-full px-2"
             animate={{
               textShadow: [
                 "0 0 0px rgba(255,255,255,0)",
@@ -144,7 +154,7 @@ const Gallery = () => {
             }}
             transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
           >
-            <span className="bg-gradient-to-r from-blue-400 via-cyan-300  bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 via-cyan-300 bg-clip-text text-transparent">
               GALLERY
             </span>
           </motion.h2>
@@ -152,7 +162,7 @@ const Gallery = () => {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="h-1 bg-gradient-to-r  from-blue-400 via-cyan-300   mx-auto mt-4 rounded-full"
+            className="h-1 bg-gradient-to-r from-blue-400 via-cyan-300 mx-auto mt-4 rounded-full"
           />
           <motion.p
             initial={{ opacity: 0 }}
@@ -228,7 +238,7 @@ const Gallery = () => {
           </motion.button>
         </motion.div>
 
-        {/* IMAGE GRID */}
+        {/* IMAGE GRID with individual spin loaders */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -269,13 +279,34 @@ const Gallery = () => {
                         imageRendering: "auto",
                         transform: "translateZ(0)",
                       }}
+                      onLoad={() => {
+                        setLoadedStates(prev => {
+                          if (i >= prev.length) return prev;
+                          const newStates = [...prev];
+                          newStates[i] = true;
+                          return newStates;
+                        });
+                      }}
                       onError={(e) => {
                         const target = e.target;
                         if (!target.src.includes("placeholder")) {
                           target.src = `https://picsum.photos/seed/${image.title.replace(/\s/g, '')}/600/400`;
                         }
+                        setLoadedStates(prev => {
+                          if (i >= prev.length) return prev;
+                          const newStates = [...prev];
+                          newStates[i] = true;
+                          return newStates;
+                        });
                       }}
                     />
+                    
+                    {/* Individual Spin Loader */}
+                    {!loadedStates[i] && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm pointer-events-none z-20">
+                        <div className="w-10 h-10 border-4 border-white/30 border-t-cyan-400 rounded-full animate-spin shadow-lg" />
+                      </div>
+                    )}
                     
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
                     

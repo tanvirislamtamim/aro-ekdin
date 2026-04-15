@@ -24,10 +24,10 @@ const AutoPlayVideo = ({ videoSrc }) => {
     <>
       <style>
         {`
+          /* Make all video control icons light (white) in both light & dark themes */
           video::-webkit-media-controls-current-time-display,
           video::-webkit-media-controls-time-remaining-display {
-            color: #000000 !important;
-            filter: brightness(10) !important;
+            color: #ffffff !important;
           }
 
           video::-webkit-media-controls-timeline {
@@ -37,19 +37,20 @@ const AutoPlayVideo = ({ videoSrc }) => {
           video::-webkit-media-controls-overflow-button,
           video::-internal-media-controls-overflow-button,
           video::-webkit-media-controls-panel-menu-button {
-            filter: invert(1) brightness(100) contrast(10) !important;
-            -webkit-filter: invert(1) brightness(100) !important;
+            filter: brightness(0) invert(1) !important;
+            -webkit-filter: brightness(0) invert(1) !important;
             display: block !important;
           }
 
           video::-webkit-media-controls-play-button,
           video::-webkit-media-controls-mute-button,
           video::-webkit-media-controls-fullscreen-button {
-            filter: invert(1) brightness(10) !important;
+            filter: brightness(0) invert(1) !important;
           }
 
+          /* Panel background – dark gradient for better visibility on light backgrounds */
           video::-webkit-media-controls-panel {
-            background-image: linear-gradient(transparent, rgba(255, 255, 255, 0.5)) !important;
+            background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.6)) !important;
             display: flex !important;
           }
 
@@ -70,13 +71,13 @@ const AutoPlayVideo = ({ videoSrc }) => {
           playsInline
           muted
           controls
-          className="w-full h-auto md:h-full object-cover "
+          className="w-full h-auto md:h-full object-cover"
         />
 
         {!isVisible && (
-          <div className="absolute backdrop-blur-[2px] pointer-events-none flex items-center justify-center">
+          <div className="absolute inset-0 backdrop-blur-[2px] pointer-events-none flex items-center justify-center">
             <div className="text-center">
-              <div className="w-12 h-12 border-4 border-black/40 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
+              <div className="w-12 h-12 border-4 border-white/40 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
               <p className="text-white font-medium tracking-widest uppercase text-xs">
                 Experience Fullscreen
               </p>
