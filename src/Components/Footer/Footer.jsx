@@ -25,9 +25,9 @@ const Footer = () => {
 
   // Social links data
   const socialLinks = [
-    { icon: FaFacebookF, url: "https://facebook.com", label: "Facebook", color: "hover:bg-blue-600" },
-    { icon: FaTiktok, url: "https://tiktok.com", label: "TikTok", color: "hover:bg-black" },
-    { icon: FaYoutube, url: "https://youtube.com", label: "YouTube", color: "hover:bg-red-600" },
+    { icon: FaFacebookF, url: "https://www.facebook.com/profile.php?id=61577587537905", label: "Facebook", color: "hover:bg-blue-600" },
+    { icon: FaTiktok, url: "https://www.tiktok.com/@aro.ekdin", label: "TikTok", color: "hover:bg-black" },
+    { icon: FaYoutube, url: "https://www.youtube.com/@Aro-Ekdin41", label: "YouTube", color: "hover:bg-red-600" },
   ];
 
   // --- All variants remain beautiful, but now they will retrigger on each view ---
