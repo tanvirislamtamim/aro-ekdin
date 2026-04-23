@@ -236,5 +236,41 @@
     "Birthdate": "04/12/2011",
     "DominantHand": "Right",
     "phone": "01864450133"
+    },
+    { 
+    "id": 75, 
+    "name": "Akash Islam Shawon", 
+    "facebook": "https://www.facebook.com/akash.islam.shawon.2024",
+    "instagram": "https://www.instagram.com/akash_islamshawon/?__pwa=1",
+    "whatsapp": "https://wa.me/01648508526?text=Hello%20br",
+    "nationality": "Bangladeshi",
+    "position": "Opposite Hitter", 
+    "work": "Verified Player" ,
+    "img": "/Shawon.jpg",
+    "age": 23,
+    "height": "5'10\"",
+    "weight": "65 kg",
+    "jersey": "75",
+    "Birthdate": "25/05/2002",
+    "DominantHand": "Right",
+    "phone": "01648508526"
+    },
+    { 
+    "id": 99, 
+    "name": "MD Josim Talukder", 
+    "facebook": "https://www.facebook.com/T.Josim.10",
+    "instagram": "https://www.instagram.com/akash_islamshawon/?__pwa=1",
+    "whatsapp": "https://wa.me/01789752340?text=Hello%20br",
+    "nationality": "Bangladeshi",
+    "position": "Libero", 
+    "work": "Verified Player" ,
+    "img": "/Josim.jpg",
+    "age": 26,
+    "height": "5'8\"",
+    "weight": "60 kg",
+    "jersey": "99",
+    "Birthdate": "10/01/2000",
+    "DominantHand": "Right",
+    "phone": "01789752340"
     }
 ]

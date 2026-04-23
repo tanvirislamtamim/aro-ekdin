@@ -161,56 +161,7 @@ const Footer = () => {
     },
   };
 
-  const bottomBarVariants = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, delay: 0.4 },
-    },
-  };
 
-  const copyrightVariants = {
-    hidden: { x: -30, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.5, delay: 0.1 },
-    },
-  };
-
-  const privacyVariants = {
-    hidden: { y: 20, opacity: 0, rotate: -3 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      rotate: 0,
-      transition: { duration: 0.5, delay: 0.2 },
-    },
-  };
-
-  const termsVariants = {
-    hidden: { scale: 0.5, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        delay: 0.3,
-        type: "spring",
-      },
-    },
-  };
-
-  const cookiesVariants = {
-    hidden: { x: 30, opacity: 0, skewX: 10 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      skewX: 0,
-      transition: { duration: 0.5, delay: 0.4 },
-    },
-  };
 
   const watermarkVariants = {
     hidden: {
