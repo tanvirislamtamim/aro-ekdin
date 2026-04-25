@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 const TopPlayers = () => {
   const players = [
-    { name: "S.Sajjad", id: "12", role: "Game Changer", img: "/Sajjad.jpg" },
-    { name: "Mizba Al Naim", id: "3", role: "Captain", img: "/Mizba.jpg" },
-    { name: "MD Shehad", id: "5", role: "Star Performer", img: "/Shehad.jpg" },
+    { name: "S.Sajjad", id: "12", role: "Game Changer", img: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145445/Sajjad_egabvp.png" },
+    { name: "Mizba Al Naim", id: "3", role: "Captain", img: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145439/Mizba_ufaruk.png" },
+    { name: "MD Shehad", id: "5", role: "Star Performer", img: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145446/Shehad_tvxges.jpg" },
   ];
 
   return (

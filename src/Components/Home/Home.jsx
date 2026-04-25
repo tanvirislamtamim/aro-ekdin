@@ -166,7 +166,7 @@ const Home = () => {
 
         
         <div className="bg-black">
-          <AutoPlayVideo videoSrc="MainVideo.mp4" />
+          <AutoPlayVideo videoSrc="https://res.cloudinary.com/do8awe7fc/video/upload/q_auto/f_auto/v1777145434/MainVideo_rxfdje.mp4" />
         </div>
 
         <TopPlayers ></TopPlayers>

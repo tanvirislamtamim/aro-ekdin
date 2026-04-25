@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router";
-import logo from "../../../public/Logo.jpeg"; 
+ 
 
 const Navbar = () => {
     // Premium Active/Inactive Style with subtle glow
@@ -45,7 +45,7 @@ const Navbar = () => {
                 <div className="relative mx-1 sm:mx-3 shrink-0">
                     <div className="absolute inset-0 bg-[#ea580c]/20 blur-xl rounded-full"></div>
                     <img
-                        src={logo}
+                        src="https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145975/Logo_qzb1xk.jpg"
                         alt="Logo"
                         className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white/20 shadow-2xl transition-transform duration-500 hover:rotate-360"
                     />

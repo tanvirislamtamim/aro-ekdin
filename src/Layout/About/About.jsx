@@ -362,7 +362,7 @@ const AboutUs = () => {
               }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
             >
-              <img src="IMG_2008.jpg" alt="Team playing" className="w-full h-full object-cover" />
+              <img src="https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145679/IMG_2008_uxdtnc.jpg" alt="Team playing" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
             </motion.div>
           </motion.div>

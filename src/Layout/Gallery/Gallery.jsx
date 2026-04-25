@@ -12,23 +12,23 @@ const Gallery = () => {
 
   // New Photos (Aro Ekdin 2026 collection)
   const newPhotos = [
-    { src: "IMG_2008.jpg", title: "Aro Ekdin 2026", year: "2026" },
-    { src: "IMG_2025.jpg", title: "Aro Ekdin 2026", year: "2026" },
-    { src: "IMG_2301.jpg", title: "Aro Ekdin 2026", year: "2026" },
-    { src: "IMG_2323.jpg", title: "Aro Ekdin 2026", year: "2026" },
-    { src: "IMG_1834.jpg", title: "Aro Ekdin 2026", year: "2026" },
-    { src: "IMG_2281.jpg", title: "Aro Ekdin 2026", year: "2026" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145921/IMG_2008_yyofuj.jpg", title: "Aro Ekdin 2026", year: "2026" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145931/IMG_2025_w8k6uq.jpg", title: "Aro Ekdin 2026", year: "2026" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145929/IMG_2301_mlqipy.jpg", title: "Aro Ekdin 2026", year: "2026" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145955/IMG_2323_j0wftq.jpg", title: "Aro Ekdin 2026", year: "2026" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145931/IMG_1834_s6mhbs.jpg", title: "Aro Ekdin 2026", year: "2026" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145929/IMG_2281_rqbpqy.jpg", title: "Aro Ekdin 2026", year: "2026" },
   ];
 
   // Old Photos (Classic memories collection)
   const oldPhotos = [
-    { src: "/Old/Old1.jpg", title: "Memories 2023", year: "2023" },
-    { src: "/Old/Old2.jpg", title: "Memories 2018", year: "2018" },
-    { src: "/Old/Old3.jpg", title: "Memories 2018", year: "2018" },
-    { src: "/Old/Old4.jpg", title: "Memories 2025", year: "2025" },
-    { src: "/Old/Old5.jpg", title: "Memories 2025", year: "2025" },
-    { src: "/Old/Old6.jpg", title: "Memories 2025", year: "2025" },
-    { src: "/Old/Old7.jpg", title: "Memories 2025", year: "2025" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145705/Old1_tytrmd.jpg", title: "Memories 2023", year: "2023" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145707/Old2_awkwax.jpg", title: "Memories 2018", year: "2018" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145705/Old3_vhwjjk.jpg", title: "Memories 2018", year: "2018" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145742/Old7_scuigj.jpg", title: "Memories 2025", year: "2025" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145709/Old5_rjhhyp.jpg", title: "Memories 2025", year: "2025" },
+    { src: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145715/Old6_emtfp2.jpg", title: "Memories 2025", year: "2025" },
+    
   ];
 
   const currentPhotos = activeTab === "new" ? newPhotos : oldPhotos;

@@ -263,7 +263,7 @@ const Footer = () => {
                 className="relative mb-8 md:mb-10 inline-block"
               >
                 <motion.img
-                  src="Logo.jpeg"
+                  src="https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145975/Logo_qzb1xk.jpg"
                   alt="Team Logo"
                   className="relative w-28 h-28 md:w-36 md:h-36 rounded-[2rem] md:rounded-[2.5rem] object-cover border-2 border-white/20 shadow-2xl cursor-pointer transition-all duration-300 hover:scale-110 hover:rotate-6 hover:border-blue-400"
                   whileHover={{ scale: 1.05, rotate: 5 }}
