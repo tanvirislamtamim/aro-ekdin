@@ -10,19 +10,19 @@ const Home = () => {
   const bannerData = [
     {
       id: 1,
-      img: "IMG_2008.jpg",
+      img: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145679/IMG_2008_uxdtnc.jpg",
       title: "Aro Ekdin",
       description: "Bound by Passion, Driven by Teamwork"
     },
     {
       id: 2,
-      img: "/Banner images/IMG_2281.jpg",
+      img: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145652/IMG_2689_vze9lh.jpg",
       title: "Rise Together",
       description: "Every set, every spike, we play as one."
     },
     {
       id: 3,
-      img: "/Banner images/IMG_2689.jpg",
+      img: "https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145633/IMG_2281_z0lm9k.jpg",
       title: "Elite Action",
       description: "Chasing greatness on and off the court."
     }

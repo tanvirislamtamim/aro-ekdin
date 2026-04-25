@@ -2,9 +2,14 @@ import React from 'react';
 
 export default function Ultimate3DCarousel() {
   const images = [
-    'Action1.jpg', 'Action2.jpg', 'Action3.jpg', 
-    'Action4.jpeg', 'Action5.jpg', 'Action1.jpg',
-    'Action2.jpg', 'Action3.jpg', 
+    'https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145490/Action4_r4hccj.jpg',
+     'https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145489/Action3_skmfkv.jpg',
+      'https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145487/Action1_rsrzvd.jpg', 
+    'https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145486/Action5_mhdswz.jpg',
+    'https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145484/Action2_xjcmrw.jpg',
+    'https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145490/Action4_r4hccj.jpg',
+    'https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145489/Action3_skmfkv.jpg', 
+    'https://res.cloudinary.com/do8awe7fc/image/upload/q_auto/f_auto/v1777145487/Action1_rsrzvd.jpg', 
   ];
 
  
